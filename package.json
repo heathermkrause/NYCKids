@@ -7,13 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "webpack:w": "webpack -w",
-    "web" : "http-server ./",
-    "convert:stat" : "node scripts/convertStatistic",
-    "convert:shape" : "sh scripts/convertShape.sh",
+    "web": "http-server ./",
+    "convert:stat": "node scripts/convertStatistic",
+    "convert:shape": "sh scripts/convertShape.sh",
     "prewebpack": "npm i",
     "prewebpack:w": "npm i",
     "preconvert:stat": "npm i",
-    "preweb" : "npm run webpack"
+    "preweb": "npm run webpack"
   },
   "author": "",
   "license": "ISC",
