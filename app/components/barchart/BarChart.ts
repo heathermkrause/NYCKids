@@ -51,7 +51,7 @@ export class BarChart {
             .attr('transform', 'translate(' + (this.MARGIN_LEFT + (width / 2)) + ', 0)');
 
         let scale = d3.scale.linear().domain(this.DOMAIN).range([-width / 2, width / 2]);
-        let colorScale = d3.scale.linear().domain(this.DOMAIN).range(this.COLORS);
+        let colorScale = d3.scale.linear().domain(this.DOMAIN).range(<any>this.COLORS);
 
         let value = function (d) {
             return d['communityPerformance'];
@@ -77,7 +77,7 @@ export class BarChart {
             .attr('fill', (d) => colorScale(value(d)));
 
         g.append('text')
-            .text(d => d.geography)
+            .text(d => (<any>d).geography)
             .attr('y', (d, i) => i * (this.h + this.dh) + 14)
             .attr('x', -width / 2 - 10)
             .attr('text-anchor', 'end')
@@ -91,6 +91,6 @@ export class BarChart {
      * @returns {any}
      */
     private sortData(data:Array<any>) {
-        return data.sort((a, b) => +a.communityPerformance < +b.communityPerformance)
+        return data.sort((a, b) => parseInt(a.communityPerformance) < parseInt(b.communityPerformance) ? 1 : 0)
     }
 }

@@ -51,13 +51,13 @@ export class MapChart {
             .translate([width / 2, height / 2]);
 
         let path = d3.geo.path().projection(projection);
-        let _this = this;
+        let self = this;
 
         svg.selectAll('path').data(topojson.feature(data, data.objects.nycd).features).enter().append('path')
             .attr('d', path)
             .attr('fill', d => getStat(d) ? colorScale(getStat(d).communityPerformance) : this.NO_STAT_COLOR)
-            .on('mouseover', function(d){ _this.showTooltip(d3.mouse(this), d, getStat(d)); })
-            .on('mousemove', function(d){ _this.showTooltip(d3.mouse(this), d, getStat(d)); })
+            .on('mouseover', function(d){ self.showTooltip(d3.mouse(this), d, getStat(d)); })
+            .on('mousemove', function(d){ self.showTooltip(d3.mouse(this), d, getStat(d)); })
             .on('mouseout', () => this.tooltip.hide())
     }
 

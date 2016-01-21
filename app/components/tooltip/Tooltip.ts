@@ -7,7 +7,7 @@ export class Tooltip {
 
     _hideTimer:number;
 
-    constructor(context:HTMLElement) {
+    constructor(context?:HTMLElement) {
         context = context || document.body;
         var node = this.node = <HTMLElement>context.appendChild(document.createElement('div'));
 
