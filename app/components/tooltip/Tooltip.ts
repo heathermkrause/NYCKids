@@ -4,6 +4,7 @@ export class Tooltip {
     node:HTMLElement;
 
     offsetWidth = () => this.node.offsetWidth;
+    offsetHeight = () => this.node.offsetHeight;
 
     _hideTimer:number;
 

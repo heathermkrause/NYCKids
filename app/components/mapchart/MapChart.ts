@@ -12,7 +12,7 @@ export class MapChart {
     //private ZOOM:number = 79000;
     private ZOOM:(number)=>number = (w) => w * 79000 / 800;
     private CENTER:[number, number] = [-73.979, 40.70];
-    private COLORS = ['#519426', '#c51b7d'];
+    private COLORS = ['#f52887', '#27F595'];
     private NO_STAT_COLOR = '#777';
     private DOMAIN = [-0.5, 0.5];
 
@@ -67,9 +67,12 @@ export class MapChart {
         }
         let offset = this.$el.offset();
 
-        let text = `Kids index: ${stat.kidsIndex}<br/><br/>
-        ${stat.geography}<br/>
+        let text = `
+        <strong>Kids index:</strong> ${stat.kidsIndex}<br/>
+        <strong>Community Performance:</strong> ${stat.communityPerformance}<br/>
+        <strong>Strength:</strong> ${stat.strength}<br/>
         `;
+
         this.tooltip.show(text, xy[1] + offset.top + 5 + 'px', xy[0] + offset.left  + 5 + 'px');
     }
 }
