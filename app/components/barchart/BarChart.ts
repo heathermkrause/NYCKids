@@ -37,7 +37,7 @@ export class BarChart {
      * @param data
      */
     render(data) {
-        data = this.sortData(data);
+        this.sortData(data);
 
         let width = this.$el.width() - this.MARGIN_LEFT;
         let height = data.length * (this.dh + this.h);
@@ -91,6 +91,9 @@ export class BarChart {
      * @returns {any}
      */
     private sortData(data:Array<any>) {
-        return data.sort((a, b) => parseInt(a.communityPerformance) < parseInt(b.communityPerformance) ? 1 : 0)
+        let cond = function(a, b){
+            return +a.communityPerformance < +b.communityPerformance ? 1 : +a.communityPerformance > +b.communityPerformance ? -1 : 0;
+        }
+        data.sort(cond);
     }
 }
